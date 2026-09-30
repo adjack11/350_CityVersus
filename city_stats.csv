@@ -1,0 +1,11 @@
+city_id,city_name,state,population,white_percent,black_percent,american_indian_percent,asian_percent,pacific_islander_percent,two_plus_races_percent,hispanic_percent,median_income,median_gross_rent,median_monthly_owner_cost,unemployment_rate,uninsured_percent,poverty_percent,violent_crime_rate,property_crime_rate
+1,Louisville,KY,641962,60.7,22.4,0.2,2.9,0,11,9.5,66849,1120,1555,4.8,7,15.8,707.4,3326.2
+2,Cincinnati,OH,314367,49,36.5,0.2,2.7,0,9,6.1,52909,1001,1640,3.7,8.9,25.5,845.6,3829.3
+3,Columbus,OH,938396,51.7,29.3,0.3,6,0,9.1,8.3,66082,1295,1599,3.2,11.4,18.1,435,2653.3
+4,Cleveland,OH,363608,35.5,45.9,0.3,2.6,0,10.5,13.2,40801,945,1193,3.1,9.3,30.6,1561.1,4426.3
+5,Indianapolis,IN,901116,51.3,27.9,0.6,4.2,0,9.7,13.8,66219,1156,1462,3.4,10,15.8,877.9,3336.1
+6,St. Louis,MO,278144,45.5,42.3,0.3,3.5,0,6.5,5.3,56160,997,1487,3.8,10.9,20.6,1367.1,5706.9
+7,Detroit,MI,649095,11.6,75.3,0.4,1.7,0,6,8.3,39938,1074,1238,6,8.5,32.7,1781.3,4305.3
+8,Memphis,TN,609647,23.8,62.9,0.5,1.7,0.1,5.5,10.4,51736,1181,1420,4.7,16.9,23.1,2501.3,6899
+9,Nashville,TN,721074,54.6,24.9,0.5,3.5,0.1,11.2,14.1,77371,1586,1898,3,14.4,14.1,1124.1,4509.5
+10,Chicago,IL,2731585,36,27.9,1.1,7.3,0.1,13.9,29.7,77902,1440,2339,4.9,11,16.8,540,3472.4
