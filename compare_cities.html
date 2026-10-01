@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>City Versus</title>
+</head>
+
+<body>
+
+<!-- HEADER / NAVIGATION -->
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <h1 id="project-title">City Versus</h1>
+
+        <!-- SEARCH BAR -->
+        <!-- TODO: Add autocomplete city suggestions with JavaScript -->
+        <search>
+            <form action="/search" method="get">
+                <label for="city-search">Search for a city:</label>
+
+                <input
+                        type="search"
+                        name="city"
+                        id="city-search"
+                        placeholder="Enter a city name"
+                >
+
+                <button type="submit">Search</button>
+            </form>
+        </search>
+
+        <!-- FACT SELECTOR -->
+        <div class="fact-selector">
+            <label for="fact">Select a fact:</label>
+
+            <select id="fact">
+                <option value="population">Population</option>
+                <option value="income">Median income</option>
+                <option value="poverty-rate">Poverty rate</option>
+            </select>
+        </div>
+
+        <!-- LOGIN -->
+        <a href="login.html">Log In</a>
+
+    </nav>
+
+</header>
+
+
+<!-- WEBSITE DESCRIPTION -->
+<section class="content-block" id="project-overview">
+    <p>
+        Here is a short description of the website and maybe why we made it:
+        Lorem ipsum dolor sit amet consectetur adipiscing elit. Occaecat
+        laboris id optio dolores ea ducimus est repellendus id veniam quo.
+        Sit et ad in id occaecat deserunt exercitation rerum culpa fugiat
+        sunt officia.
+    </p>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main>
+
+    <h2>Louisville, Kentucky</h2>
+
+    <!-- CITY OVERVIEW -->
+    <section class="content-block" id="city-overview">
+
+        <h3>City Overview</h3>
+
+        <article class="city-description">
+            <h3>Louisville, Kentucky</h3>
+
+            <p>Louisville paragraph one...</p>
+            <p>Louisville paragraph two...</p>
+            <p>Louisville paragraph three...</p>
+        </article>
+
+        <article class="city-description">
+            <h3>Chicago, Illinois</h3>
+
+            <p>Chicago paragraph one...</p>
+            <p>Chicago paragraph two...</p>
+            <p>Chicago paragraph three...</p>
+        </article>
+
+        <button type="button">←</button>
+        <button type="button">→</button>
+
+    </section>
+
+
+    <!-- CITY STATISTICS -->
+    <section class="content-block" id="city-statistics">
+
+        <h3>City Statistics</h3>
+
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th scope="col">Louisville</th>
+                <th scope="col">Chicago</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <th scope="row">Population</th>
+                <td>641,962</td>
+                <td>2,731,585</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Median Income</th>
+                <td>$66,849</td>
+                <td>$77,902</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Poverty Rate</th>
+                <td>15.8%</td>
+                <td>16.8%</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+</main>
+
+
+<!-- MEMBERS AND INFO -->
+<footer class="content-block" id="footer">
+
+    <ul>
+        <li>Ashley Jackson</li>
+        <li>Travis Jones</li>
+        <li>Molly Ladnier</li>
+        <li>Nathan Little</li>
+        <li>Benjamin Mackay</li>
+    </ul>
+
+    <p>CSE-350</p>
+    <p>University of Louisville</p>
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Log In | City Versus</title>
+</head>
+
+<body>
+
+<!-- HEADER / NAVIGATION -->
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="index.html">
+            <h1 id="project-title">City Versus</h1>
+        </a>
+
+        <!-- SEARCH BAR -->
+        <search>
+            <form action="/search" method="get">
+                <label for="city-search">Search for a city:</label>
+
+                <input
+                        type="search"
+                        name="city"
+                        id="city-search"
+                        placeholder="Enter a city name"
+                >
+
+                <button type="submit">Search</button>
+            </form>
+        </search>
+
+        <!-- FACT SELECTOR -->
+        <div class="fact-selector">
+            <label for="fact">Select a fact:</label>
+
+            <select id="fact">
+                <option value="population">Population</option>
+                <option value="income">Median income</option>
+                <option value="poverty-rate">Poverty rate</option>
+            </select>
+        </div>
+
+        <a href="login.html">Log In</a>
+
+    </nav>
+
+</header>
+
+
+<!-- LOGIN -->
+<main>
+
+    <section class="login-container">
+
+        <h2>Log In</h2>
+
+        <form action="/login" method="post">
+
+            <div class="form-field">
+                <label for="email">Email:</label>
+
+                <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                >
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password:</label>
+
+                <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                >
+            </div>
+
+            <button type="submit">Log In</button>
+
+        </form>
+
+        <p>
+            Don't have an account?
+            <a href="#">Create an account</a>
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- MEMBERS AND INFO -->
+<footer class="content-block" id="footer">
+
+    <ul>
+        <li>Ashley Jackson</li>
+        <li>Travis Jones</li>
+        <li>Molly Ladnier</li>
+        <li>Nathan Little</li>
+        <li>Benjamin Mackay</li>
+    </ul>
+
+    <p>CSE-350</p>
+    <p>University of Louisville</p>
+
+</footer>
+
+</body>
+
+</html>
