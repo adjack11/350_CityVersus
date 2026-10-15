@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>City Versus</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 </head>
 
 <body>
@@ -13,7 +18,10 @@
 
     <nav class="navbar">
 
-        <h1 id="project-title">City Versus</h1>
+        <!-- CHANGED: Project title now links back to home -->
+        <a href="index.html">
+            <h1 id="project-title">City Versus</h1>
+        </a>
 
         <!-- SEARCH BAR -->
         <!-- TODO: Add autocomplete city suggestions with JavaScript -->
@@ -100,35 +108,37 @@
 
         <h3>City Statistics</h3>
 
-        <table>
-            <thead>
-            <tr>
-                <th></th>
-                <th scope="col">Louisville</th>
-                <th scope="col">Chicago</th>
-            </tr>
-            </thead>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Louisville</th>
+                    <th scope="col">Chicago</th>
+                </tr>
+                </thead>
 
-            <tbody>
-            <tr>
-                <th scope="row">Population</th>
-                <td>641,962</td>
-                <td>2,731,585</td>
-            </tr>
+                <tbody>
+                <tr>
+                    <th scope="row">Population</th>
+                    <td>641,962</td>
+                    <td>2,731,585</td>
+                </tr>
 
-            <tr>
-                <th scope="row">Median Income</th>
-                <td>$66,849</td>
-                <td>$77,902</td>
-            </tr>
+                <tr>
+                    <th scope="row">Median Income</th>
+                    <td>$66,849</td>
+                    <td>$77,902</td>
+                </tr>
 
-            <tr>
-                <th scope="row">Poverty Rate</th>
-                <td>15.8%</td>
-                <td>16.8%</td>
-            </tr>
-            </tbody>
-        </table>
+                <tr>
+                    <th scope="row">Poverty Rate</th>
+                    <td>15.8%</td>
+                    <td>16.8%</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
     </section>
 

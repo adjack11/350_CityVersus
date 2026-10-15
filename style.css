@@ -1,0 +1,463 @@
+/* ---------- GENERAL PAGE SETUP ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Rubik", Arial, sans-serif;
+
+    background-color: #f2f2f2;
+    color: #222222;
+}
+
+
+/* Remove underline from links */
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #777777;
+}
+
+
+/* ---------- HEADER / NAVIGATION ---------- */
+
+.site-header {
+    width: 100%;
+    background-color: #dddddd;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    padding: 15px 5%;
+}
+
+
+/* Project title */
+
+#project-title {
+    margin: 0;
+
+    color: #222222;
+    white-space: nowrap;
+}
+
+#project-title:hover {
+    color: #777777;
+}
+
+
+/* ---------- NAVIGATION SEARCH ---------- */
+
+.navbar search {
+    flex: 1;
+}
+
+.navbar search form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar input[type="search"] {
+    width: 100%;
+    max-width: 350px;
+
+    padding: 8px 10px;
+
+    border: 1px solid #aaaaaa;
+    border-radius: 6px;
+}
+
+
+/* ---------- FACT SELECTOR ---------- */
+
+.fact-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fact-selector select {
+    padding: 8px;
+
+    border: 1px solid #aaaaaa;
+    border-radius: 6px;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+button {
+    padding: 8px 14px;
+
+    font: inherit;
+
+    background-color: #cccccc;
+
+    border: 1px solid #aaaaaa;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #bbbbbb;
+}
+
+
+/* ---------- MAIN CONTENT ---------- */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 20px auto;
+}
+
+
+.content-block {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 15px auto;
+    padding: 20px;
+
+    background-color: white;
+
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}
+
+
+/*
+   Content blocks inside <main> don't need their own
+   width because main already controls the page width.
+*/
+
+main .content-block {
+    width: 100%;
+}
+
+
+/* ---------- HEADINGS ---------- */
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+main > h2 {
+    margin-bottom: 15px;
+}
+
+
+/* ---------- CITY DESCRIPTION ---------- */
+
+.city-description {
+    margin-bottom: 20px;
+}
+
+.city-description:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* ---------- TABLES ---------- */
+
+/*
+   ADDED HTML HOOK:
+   Tables should be placed inside .table-container.
+   This lets large tables scroll on small screens.
+*/
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background-color: white;
+}
+
+th,
+td {
+    padding: 12px;
+
+    text-align: left;
+
+    border: 1px solid #cccccc;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+tbody tr:hover {
+    background-color: #f7f7f7;
+}
+
+
+/* ---------- STATISTIC INFORMATION ---------- */
+
+/*
+   Hover over a statistic name to display
+   additional information.
+*/
+
+.stat-help {
+    position: relative;
+
+    cursor: help;
+}
+
+
+/*
+   Optional visual indicator that more
+   information is available.
+*/
+
+.stat-help::after {
+    content: " ⓘ";
+
+    font-size: 0.85em;
+}
+
+
+/* Hidden by default */
+
+.stat-description {
+    display: none;
+
+    position: absolute;
+    z-index: 10;
+
+    left: 0;
+    top: 100%;
+
+    width: 230px;
+    padding: 10px;
+
+    background-color: #333333;
+    color: white;
+
+    border-radius: 6px;
+
+    font-size: 0.85rem;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+
+/* Display while hovering */
+
+.stat-help:hover .stat-description {
+    display: block;
+}
+
+
+/* ---------- COMPARISON PAGE ---------- */
+
+/*
+   Holds the city descriptions.
+   On a large screen, they appear beside each other.
+*/
+
+.comparison-descriptions {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* Arrow / comparison controls */
+
+.comparison-controls {
+    display: flex;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+/* ---------- LOGIN PAGE ---------- */
+
+.login-container {
+    width: 90%;
+    max-width: 500px;
+
+    margin: 40px auto;
+    padding: 25px;
+
+    background-color: white;
+
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.form-field input {
+    width: 100%;
+
+    padding: 10px;
+
+    font: inherit;
+
+    border: 1px solid #aaaaaa;
+    border-radius: 6px;
+}
+
+.login-container button {
+    align-self: flex-start;
+}
+
+
+/* ---------- DATA SOURCE LINKS ---------- */
+
+/*
+   Use this class for Census, BLS, etc.
+   You can change these colors separately later.
+*/
+
+.source-link {
+    color: #333333;
+}
+
+.source-link:hover {
+    color: #666666;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+#footer {
+    margin-top: 20px;
+}
+
+#footer ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* Tablets / smaller laptops */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .navbar search {
+        order: 3;
+
+        flex-basis: 100%;
+    }
+
+    .navbar input[type="search"] {
+        max-width: none;
+    }
+
+    .comparison-descriptions {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Phones */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+    #project-title {
+        text-align: center;
+    }
+
+    .navbar search form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navbar input[type="search"] {
+        max-width: none;
+    }
+
+    .fact-selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    main,
+    .content-block {
+        width: 95%;
+    }
+
+    .content-block {
+        padding: 15px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    .stat-description {
+        width: 180px;
+    }
+
+    #footer ul {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+}
