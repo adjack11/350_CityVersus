@@ -10,20 +10,22 @@ body {
 
     font-family: "Rubik", Arial, sans-serif;
 
-    background-color: #f2f2f2;
-    color: #222222;
+    background-color: #f7f8f6;
+    color: #0b0d09; /* Main text */
 }
 
 
-/* Remove underline from links */
+/* Remove underline from links
+   Only applies to Log In for now
+*/
 
 a {
-    color: #333333;
+    color: #f7f8f6;
     text-decoration: none;
 }
 
 a:hover {
-    color: #777777;
+    color: #b2c1b9;
 }
 
 
@@ -31,7 +33,7 @@ a:hover {
 
 .site-header {
     width: 100%;
-    background-color: #dddddd;
+    background-color: #869f79;
 }
 
 .navbar {
@@ -49,12 +51,12 @@ a:hover {
 #project-title {
     margin: 0;
 
-    color: #222222;
+    color: #f7f8f6;
     white-space: nowrap;
 }
 
 #project-title:hover {
-    color: #777777;
+    color: #b2c1b9;
 }
 
 
@@ -76,8 +78,17 @@ a:hover {
 
     padding: 8px 10px;
 
-    border: 1px solid #aaaaaa;
+    border: 1px solid #f7f8f6;
     border-radius: 6px;
+}
+
+/* TODO: FIX NAVIGATION BUTTON HOVER */
+.nav-button:hover {
+    background-color: #e5f5d7;
+}
+
+.nav-label {
+    color: #f7f8f6;
 }
 
 
@@ -92,7 +103,7 @@ a:hover {
 .fact-selector select {
     padding: 8px;
 
-    border: 1px solid #aaaaaa;
+    border: 1px solid #f7f8f6;
     border-radius: 6px;
 }
 
@@ -104,16 +115,16 @@ button {
 
     font: inherit;
 
-    background-color: #cccccc;
+    background-color: #f7f8f6;
 
-    border: 1px solid #aaaaaa;
+    border: 1px solid #f7f8f6;
     border-radius: 6px;
 
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #bbbbbb;
+    background-color: #6d913f;
 }
 
 
@@ -134,7 +145,7 @@ main {
     margin: 15px auto;
     padding: 20px;
 
-    background-color: white;
+    background-color: #e5f5d7;
 
     border: 1px solid #cccccc;
     border-radius: 10px;
@@ -178,14 +189,13 @@ main > h2 {
 /* ---------- TABLES ---------- */
 
 /*
-   ADDED HTML HOOK:
    Tables should be placed inside .table-container.
    This lets large tables scroll on small screens.
 */
 
 .table-container {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: visible;
 }
 
 table {
@@ -202,15 +212,15 @@ td {
 
     text-align: left;
 
-    border: 1px solid #cccccc;
+    border: 1px solid #6A835D;
 }
 
 th {
-    background-color: #eeeeee;
+    background-color: #869f79;
 }
 
 tbody tr:hover {
-    background-color: #f7f7f7;
+    background-color: #b2c1b9;
 }
 
 
@@ -228,18 +238,6 @@ tbody tr:hover {
 }
 
 
-/*
-   Optional visual indicator that more
-   information is available.
-*/
-
-.stat-help::after {
-    content: " ⓘ";
-
-    font-size: 0.85em;
-}
-
-
 /* Hidden by default */
 
 .stat-description {
@@ -254,12 +252,12 @@ tbody tr:hover {
     width: 230px;
     padding: 10px;
 
-    background-color: #333333;
-    color: white;
+    background-color: rgb(247 248 246 / 0.71);
+    color: #ff0000;
 
     border-radius: 6px;
 
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     font-weight: normal;
     line-height: 1.4;
 }
@@ -309,9 +307,9 @@ tbody tr:hover {
     margin: 40px auto;
     padding: 25px;
 
-    background-color: white;
+    background-color: rgb(229 245 215 / 0.78);
 
-    border: 1px solid #cccccc;
+    border: 1px solid rgb(229 245 215 / 0.78);
     border-radius: 10px;
 }
 
@@ -329,6 +327,10 @@ tbody tr:hover {
     gap: 5px;
 }
 
+.account-link {
+    color: #6d913f;
+}
+
 .form-field input {
     width: 100%;
 
@@ -336,7 +338,7 @@ tbody tr:hover {
 
     font: inherit;
 
-    border: 1px solid #aaaaaa;
+    border: 1px solid #f7f8f6;
     border-radius: 6px;
 }
 
@@ -347,17 +349,12 @@ tbody tr:hover {
 
 /* ---------- DATA SOURCE LINKS ---------- */
 
-/*
-   Use this class for Census, BLS, etc.
-   You can change these colors separately later.
-*/
-
 .source-link {
-    color: #333333;
+    color: #0d1009;
 }
 
 .source-link:hover {
-    color: #666666;
+    color: #6d913f;
 }
 
 
@@ -365,10 +362,20 @@ tbody tr:hover {
 
 #footer {
     margin-top: 20px;
+    text-align: center;
+}
+
+#footer a {
+    color: #0d1009;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #6d913f;
 }
 
 #footer ul {
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
 
     gap: 15px;
@@ -376,6 +383,17 @@ tbody tr:hover {
     padding: 0;
 
     list-style: none;
+}
+
+.footer-section {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 20px;
+}
+
+
+.footer-head {
+    font-weight: bold;
 }
 
 

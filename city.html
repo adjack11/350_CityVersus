@@ -27,7 +27,7 @@
         <!-- SEARCH BAR -->
         <search>
             <form action="/search" method="get">
-                <label for="city-search">Search for a city:</label>
+                <label for="city-search" class="nav-label">Search for a city:</label>
 
                 <input
                         type="search"
@@ -36,13 +36,13 @@
                         placeholder="Enter a city name"
                 >
 
-                <button type="submit">Search</button>
+                <button class="nav-button" type="submit">Search</button>
             </form>
         </search>
 
         <!-- FACT SELECTOR -->
         <div class="fact-selector">
-            <label for="fact">Select a fact:</label>
+            <label for="fact" class="nav-label">Select a fact:</label>
 
             <select id="fact">
                 <option value="population">Population</option>
@@ -57,19 +57,6 @@
     </nav>
 
 </header>
-
-
-<!-- WEBSITE DESCRIPTION -->
-<section class="content-block" id="project-overview">
-    <p>
-        Here is a short description of the website and maybe why we made it:
-        Lorem ipsum dolor sit amet consectetur adipiscing elit. Occaecat
-        laboris id optio dolores ea ducimus est repellendus id veniam quo.
-        Sit et ad in id occaecat deserunt exercitation rerum culpa fugiat
-        sunt officia.
-    </p>
-</section>
-
 
 <!-- MAIN CONTENT -->
 <main>
@@ -115,26 +102,53 @@
 
             <h3>City Statistics</h3>
 
-            <table>
-                <tbody>
+            <div class="table-container">
 
-                <tr>
-                    <th scope="row">Population</th>
-                    <td>641,962</td>
-                </tr>
+                <table>
+                    <tbody>
 
-                <tr>
-                    <th scope="row">Median Income</th>
-                    <td>$66,849</td>
-                </tr>
+                    <tr>
+                        <th scope="row"> Population
 
-                <tr>
-                    <th scope="row">Poverty Rate</th>
-                    <td>15.8%</td>
-                </tr>
+                            <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                        </th>
 
-                </tbody>
-            </table>
+                        <td>641,962</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"> Median Income
+
+                            <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                        </th>
+
+                        <td>$66,849</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"> Poverty Rate
+
+                            <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Bureau of Labor statistics (2026) </a>
+                                </span>
+                            </span>
+                        </th>
+
+                        <td>15.8%</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
 
         </section>
 
@@ -144,7 +158,8 @@
 <!-- MEMBERS AND INFO -->
 <footer class="content-block" id="footer">
 
-    <ul>
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Group Members</li>
         <li>Ashley Jackson</li>
         <li>Travis Jones</li>
         <li>Molly Ladnier</li>
@@ -152,8 +167,19 @@
         <li>Benjamin Mackay</li>
     </ul>
 
-    <p>CSE-350</p>
-    <p>University of Louisville</p>
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Institution</li>
+        <li>University of Louisville</li>
+        <li>CSE-350</li>
+    </ul>
+
+        <ul class="footer-section footer-list">
+            <li class="footer-head">References</li>
+            <li><a href="https://www.census.gov/quickfacts/" target="_blank">United States Census Bureau</a></li>
+            <li><a href="https://usafacts.org/articles/how-does-crime-compare-by-city/?hl=en-US&utm_source=chatgpt.com" target="_blank">USAFacts (Data consolidated from the FBI)</a></li>
+            <li><a href="https://www.bls.gov/opub/ted/2026/unemployment-rates-lower-in-241-metro-areas-up-in-128-over-year-ended-july-2026.htm" target="_blank">U.S. Bureau of Labor Statistics</a></li>
+
+        </ul>
 
 </footer>
 

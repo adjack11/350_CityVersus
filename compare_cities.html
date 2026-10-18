@@ -36,7 +36,7 @@
                         placeholder="Enter a city name"
                 >
 
-                <button type="submit">Search</button>
+                <button class="nav-button" type="submit">Search</button>
             </form>
         </search>
 
@@ -58,47 +58,40 @@
 
 </header>
 
-
-<!-- WEBSITE DESCRIPTION -->
-<section class="content-block" id="project-overview">
-    <p>
-        Here is a short description of the website and maybe why we made it:
-        Lorem ipsum dolor sit amet consectetur adipiscing elit. Occaecat
-        laboris id optio dolores ea ducimus est repellendus id veniam quo.
-        Sit et ad in id occaecat deserunt exercitation rerum culpa fugiat
-        sunt officia.
-    </p>
-</section>
-
-
 <!-- MAIN CONTENT -->
 <main>
 
-    <h2>Louisville, Kentucky</h2>
+    <h2>City Comparison</h2>
 
     <!-- CITY OVERVIEW -->
     <section class="content-block" id="city-overview">
 
         <h3>City Overview</h3>
 
-        <article class="city-description">
-            <h3>Louisville, Kentucky</h3>
+        <div class="comparison-descriptions">
 
-            <p>Louisville paragraph one...</p>
-            <p>Louisville paragraph two...</p>
-            <p>Louisville paragraph three...</p>
-        </article>
+            <article class="city-description">
+                <h3>Louisville, Kentucky</h3>
 
-        <article class="city-description">
-            <h3>Chicago, Illinois</h3>
+                <p>Louisville paragraph one...</p>
+                <p>Louisville paragraph two...</p>
+                <p>Louisville paragraph three...</p>
+            </article>
 
-            <p>Chicago paragraph one...</p>
-            <p>Chicago paragraph two...</p>
-            <p>Chicago paragraph three...</p>
-        </article>
+            <article class="city-description">
+                <h3>Chicago, Illinois</h3>
 
-        <button type="button">←</button>
-        <button type="button">→</button>
+                <p>Chicago paragraph one...</p>
+                <p>Chicago paragraph two...</p>
+                <p>Chicago paragraph three...</p>
+            </article>
+
+        </div>
+
+        <div class="comparison-controls">
+            <button type="button">←</button>
+            <button type="button">→</button>
+        </div>
 
     </section>
 
@@ -109,6 +102,7 @@
         <h3>City Statistics</h3>
 
         <div class="table-container">
+
             <table>
                 <thead>
                 <tr>
@@ -119,23 +113,51 @@
                 </thead>
 
                 <tbody>
+
+
                 <tr>
-                    <th scope="row">Population</th>
+                    <th scope="row"> Population
+
+                        <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                    </th>
+
                     <td>641,962</td>
                     <td>2,731,585</td>
                 </tr>
 
                 <tr>
-                    <th scope="row">Median Income</th>
+                    <th scope="row"> Median Income
+
+                        <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                    </th>
+
                     <td>$66,849</td>
                     <td>$77,902</td>
                 </tr>
 
+
                 <tr>
-                    <th scope="row">Poverty Rate</th>
+                    <th scope="row"> Poverty Rate
+
+                        <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Bureau of Labor statistics (2026) </a>
+                                </span>
+                            </span>
+                    </th>
+
                     <td>15.8%</td>
                     <td>16.8%</td>
                 </tr>
+
                 </tbody>
             </table>
         </div>
@@ -148,7 +170,8 @@
 <!-- MEMBERS AND INFO -->
 <footer class="content-block" id="footer">
 
-    <ul>
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Group Members</li>
         <li>Ashley Jackson</li>
         <li>Travis Jones</li>
         <li>Molly Ladnier</li>
@@ -156,8 +179,19 @@
         <li>Benjamin Mackay</li>
     </ul>
 
-    <p>CSE-350</p>
-    <p>University of Louisville</p>
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Institution</li>
+        <li>University of Louisville</li>
+        <li>CSE-350</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">References</li>
+        <li><a href="https://www.census.gov/quickfacts/" target="_blank">United States Census Bureau</a></li>
+        <li><a href="https://usafacts.org/articles/how-does-crime-compare-by-city/?hl=en-US&utm_source=chatgpt.com" target="_blank">USAFacts (Data consolidated from the FBI)</a></li>
+        <li><a href="https://www.bls.gov/opub/ted/2026/unemployment-rates-lower-in-241-metro-areas-up-in-128-over-year-ended-july-2026.htm" target="_blank">U.S. Bureau of Labor Statistics</a></li>
+
+    </ul>
 
 </footer>
 
