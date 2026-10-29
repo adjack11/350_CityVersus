@@ -43,7 +43,7 @@
                         placeholder="Enter a city name"
                 >
 
-                <button class="nav-button" type="submit">Search</button>
+                <button class="nav-button" type="button" onclick="redirect()">Search</button>
             </form>
         </search>
 
@@ -105,6 +105,13 @@
     </ul>
 
 </footer>
+<script>
 
+    function redirect() {
+        const city_search = document.getElementById("city-search").value;
+        window.location.href = "city.html#" + city_search;
+    }
+
+</script>
 </body>
 </html>
