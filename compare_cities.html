@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>City Versus</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -71,26 +71,22 @@
         <div class="comparison-descriptions">
 
             <article class="city-description">
-                <h3>Louisville, Kentucky</h3>
+                <h3 id="city-name">Louisville, Kentucky</h3>
 
-                <p>Louisville paragraph one...</p>
-                <p>Louisville paragraph two...</p>
-                <p>Louisville paragraph three...</p>
-            </article>
+                <div id="city-text">
+                    <p>Louisville paragraph one...</p>
+                    <p>Louisville paragraph two...</p>
+                    <p>Louisville paragraph three...</p>
+                </div>
 
-            <article class="city-description">
-                <h3>Chicago, Illinois</h3>
-
-                <p>Chicago paragraph one...</p>
-                <p>Chicago paragraph two...</p>
-                <p>Chicago paragraph three...</p>
             </article>
 
         </div>
 
         <div class="comparison-controls">
-            <button type="button">←</button>
-            <button type="button">→</button>
+            <button id="prev-city" type="button">←</button>
+            <p id="city-counter">City 1 of 5</p>
+            <button id="next-city" type="button">→</button>
         </div>
 
     </section>
@@ -163,7 +159,6 @@
         </div>
 
     </section>
-
 </main>
 
 
@@ -194,6 +189,9 @@
     </ul>
 
 </footer>
+
+<!-- JAVASCRIPT -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 

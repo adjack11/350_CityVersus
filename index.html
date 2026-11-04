@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>City Versus</title>
-    <link rel="stylesheet" href="style.css">
+    <!--ALLOWS FLASK TO SERVE CSS FILE-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -92,6 +93,10 @@
     </ul>
 
 </footer>
+
+<!-- JAVASCRIPT -->
+<!--ALLOWS FLASK TO SERVE JAVASCRIPT FILE-->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
