@@ -31,6 +31,7 @@ def city():
 def compare():
     return render_template("compare_cities.html")
 
+# --- TESTS DATABASE CONNECTION ---
 @app.route("/test-db")
 def test_db():
     connection = get_db_connection()
