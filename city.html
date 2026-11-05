@@ -24,10 +24,21 @@
             <h1 id="project-title">City Versus</h1>
         </a>
 
+        <!--NAVIGATION DROPDOWN-->
+	<div class="nav-dropdown">
+        <label for="nav">Features:</label>
+		<select id="nav" onchange="page_redirect(this.value)">
+            <option value="" disabled selected></option>
+			<option value="city.html">City Statistics</option>
+			<option value="compare_cities.html">Compare Cities</option>
+			<option value="charts.html">Charts</option>
+		</select>
+	</div>
+
         <!-- SEARCH BAR -->
         <search>
             <form action="/search" method="get">
-                <label for="city-search" class="nav-label">Search for a city:</label>
+                <label for="city-search">Search for a city:</label>
 
                 <input
                         type="search"
@@ -36,7 +47,7 @@
                         placeholder="Enter a city name"
                 >
 
-                <button class="nav-button" type="submit">Search</button>
+                <button class="nav-button" type="button" onclick="redirect()">Search</button>
             </form>
         </search>
 
@@ -191,7 +202,18 @@
         </ul>
 
 </footer>
+<script>
 
+    function redirect() {
+        const city_search = document.getElementById("city-search").value;
+        location.href = "#" + city_search;
+    }
+
+    function page_redirect(url){
+        window.location.href = url;
+    }
+
+</script>
 </body>
 
 </html>

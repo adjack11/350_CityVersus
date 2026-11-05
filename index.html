@@ -20,11 +20,12 @@
 	
 	<!--NAVIGATION DROPDOWN-->
 	<div class="nav-dropdown">
-		<label for="nav">Features:</label>
-		<select id="nav">
-			<option value="city-statistics">City Statistics</option>
-			<option value="compare-cities">Compare Cities</option>
-			<option value="charts">Charts</option>
+        <label for="nav">Features:</label>
+		<select id="nav" onchange="page_redirect(this.value)">
+            <option value="" disabled selected></option>
+			<option value="city.html">City Statistics</option>
+			<option value="compare_cities.html">Compare Cities</option>
+			<option value="charts.html">Charts</option>
 		</select>
 	</div>
 
@@ -110,6 +111,10 @@
     function redirect() {
         const city_search = document.getElementById("city-search").value;
         window.location.href = "city.html#" + city_search;
+    }
+
+    function page_redirect(url){
+        window.location.href = url;
     }
 
 </script>
