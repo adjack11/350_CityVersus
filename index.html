@@ -24,8 +24,9 @@
         <label for="nav">Features:</label>
 		<select id="nav" onchange="page_redirect(this.value)">
             <option value="" disabled selected></option>
-			<option value="city.html">City Statistics</option>
-			<option value="compare_cities.html">Compare Cities</option>
+            <!-- CHANGED TO ROUTE FOR FLASK instead of html filenames -->
+            <option value="/city">City Statistics</option>
+            <option value="/compare">Compare Cities</option>
 			<option value="charts.html">Charts</option>
 		</select>
 	</div>
