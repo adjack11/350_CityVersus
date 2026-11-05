@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>City Versus</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<!-- HEADER / NAVIGATION -->
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <!-- CHANGED: Project title now links back to home -->
+        <a href="index.html">
+            <h1 id="project-title">City Versus</h1>
+        </a>
+
+        <!--NAVIGATION DROPDOWN-->
+	<div class="nav-dropdown">
+        <label for="nav">Features:</label>
+		<select id="nav" onchange="page_redirect(this.value)">
+            <option value="" disabled selected></option>
+			<option value="city.html">City Statistics</option>
+			<option value="compare_cities.html">Compare Cities</option>
+			<option value="charts.html">Charts</option>
+		</select>
+	</div>
+
+        <!-- SEARCH BAR -->
+        <search>
+            <form action="/search" method="get">
+                <label for="city-search">Search for a city:</label>
+
+                <input
+                        type="search"
+                        name="city"
+                        id="city-search"
+                        placeholder="Enter a city name"
+                >
+
+                <button class="nav-button" type="button" onclick="redirect()">Search</button>
+            </form>
+        </search>
+
+        <!-- FACT SELECTOR -->
+        <div class="fact-selector">
+            <label for="fact" class="nav-label">Select a fact:</label>
+
+            <select id="fact">
+                <option value="population">Population</option>
+                <option value="income">Median income</option>
+                <option value="poverty-rate">Poverty rate</option>
+            </select>
+        </div>
+
+        <!-- LOGIN -->
+        <a href="login.html">Log In</a>
+
+    </nav>
+
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+
+    <h2 id="Louisville">Louisville, Kentucky</h2>
+    <img src="lou_race_diversity.png">
+    <h2 id="Cincinnati">Cincinnati, Ohio</h2>
+    <img src="cinci_race_diversity.png">
+    <h2 id="Columbus">Columbus, Ohio</h2>
+    <img src="colum_race_diversity.png">
+    <h2 id="Cleveland">Cleveland, Ohio</h2>
+    <img src="clev_race_diversity.png">
+    <h2 id="Indianapolis">Indianapolis, Indiana</h2>
+    <img src="indy_race_diversity.png">
+    <h2 id="St-Louis">St. Louis, Missouri</h2>
+    <img src="st_race_diversity.png">
+    <h2 id="Detroit">Detroit, Michigan</h2>
+    <img src="det_race_diversity.png">
+    <h2 id="Memphis">Memphis, Tennessee</h2>
+    <img src="mem_race_diversity.png">
+    <h2 id="Nashville">Nashville, Tennessee</h2>
+    <img src="nash_race_diversity.png">
+    <h2 id="Chicago">Chicago, Illinois</h2>
+    <img src="chi_race_diversity.png">
+
+</main>
+
+
+<!-- MEMBERS AND INFO -->
+<footer class="content-block" id="footer">
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Group Members</li>
+        <li>Ashley Jackson</li>
+        <li>Travis Jones</li>
+        <li>Molly Ladnier</li>
+        <li>Nathan Little</li>
+        <li>Benjamin Mackay</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Institution</li>
+        <li>University of Louisville</li>
+        <li>CSE-350</li>
+    </ul>
+
+        <ul class="footer-section footer-list">
+            <li class="footer-head">References</li>
+            <li><a href="https://www.census.gov/quickfacts/" target="_blank">United States Census Bureau</a></li>
+            <li><a href="https://usafacts.org/articles/how-does-crime-compare-by-city/?hl=en-US&utm_source=chatgpt.com" target="_blank">USAFacts (Data consolidated from the FBI)</a></li>
+            <li><a href="https://www.bls.gov/opub/ted/2026/unemployment-rates-lower-in-241-metro-areas-up-in-128-over-year-ended-july-2026.htm" target="_blank">U.S. Bureau of Labor Statistics</a></li>
+
+        </ul>
+
+</footer>
+<script>
+
+    function redirect() {
+        const city_search = document.getElementById("city-search").value;
+        location.href = "#" + city_search;
+    }
+
+    function page_redirect(url){
+        window.location.href = url;
+    }
+
+</script>
+</body>
+
+</html>

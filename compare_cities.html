@@ -23,6 +23,17 @@
             <h1 id="project-title">City Versus</h1>
         </a>
 
+         <!--NAVIGATION DROPDOWN-->
+	<div class="nav-dropdown">
+        <label for="nav">Features:</label>
+		<select id="nav" onchange="page_redirect(this.value)">
+            <option value="" disabled selected></option>
+			<option value="city.html">City Statistics</option>
+			<option value="compare_cities.html">Compare Cities</option>
+			<option value="charts.html">Charts</option>
+		</select>
+	</div>
+
         <!-- SEARCH BAR -->
         <!-- TODO: Add autocomplete city suggestions with JavaScript -->
         <search>
@@ -36,7 +47,7 @@
                         placeholder="Enter a city name"
                 >
 
-                <button class="nav-button" type="submit">Search</button>
+                <button class="nav-button" type="button" onclick="redirect()">Search</button>
             </form>
         </search>
 
@@ -159,6 +170,7 @@
         </div>
 
     </section>
+
 </main>
 
 
@@ -189,6 +201,18 @@
     </ul>
 
 </footer>
+<script>
+
+    function redirect() {
+        const city_search = document.getElementById("city-search").value;
+        window.location.href = "city.html#" + city_search;
+    }
+
+    function page_redirect(url){
+        window.location.href = url;
+    }
+
+</script>
 
 <!-- JAVASCRIPT -->
 <script src="{{ url_for('static', filename='script.js') }}"></script>
