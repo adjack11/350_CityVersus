@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>City Versus</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -71,27 +71,35 @@
 
 <!-- MAIN CONTENT -->
 <main>
-
     <h2 id="Louisville">Louisville, Kentucky</h2>
-    <img src="lou_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/lou_race_diversity.png') }}">
+
     <h2 id="Cincinnati">Cincinnati, Ohio</h2>
-    <img src="cinci_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/cinci_race_diversity.png') }}">
+
     <h2 id="Columbus">Columbus, Ohio</h2>
-    <img src="colum_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/colum_race_diversity.png') }}">
+
     <h2 id="Cleveland">Cleveland, Ohio</h2>
-    <img src="clev_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/clev_race_diversity.png') }}">
+
     <h2 id="Indianapolis">Indianapolis, Indiana</h2>
-    <img src="indy_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/indy_race_diversity.png') }}">
+
     <h2 id="St-Louis">St. Louis, Missouri</h2>
-    <img src="st_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/st_race_diversity.png') }}">
+
     <h2 id="Detroit">Detroit, Michigan</h2>
-    <img src="det_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/det_race_diversity.png') }}">
+
     <h2 id="Memphis">Memphis, Tennessee</h2>
-    <img src="mem_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/mem_race_diversity.png') }}">
+
     <h2 id="Nashville">Nashville, Tennessee</h2>
-    <img src="nash_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/nash_race_diversity.png') }}">
+
     <h2 id="Chicago">Chicago, Illinois</h2>
-    <img src="chi_race_diversity.png">
+    <img src="{{ url_for('static', filename='images/chi_race_diversity.png') }}">
 
 </main>
 
@@ -135,6 +143,9 @@
     }
 
 </script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 
 </html>

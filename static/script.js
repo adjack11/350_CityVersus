@@ -54,3 +54,29 @@ if (prevButton){
 
 console.log(cityName)
 
+// --- DISPLAYING STATISTICS IN TABLE ---
+// To add a new cell, place the corresponding SQL attribute name in the IF statement
+
+const populationCell = document.getElementById("city-population");
+
+if (populationCell) {
+    fetch("/api/cities")
+        .then(response => response.json())
+        .then(cities => {
+            const louisville = cities.find(city => city.city_name === "Louisville");
+            const medianIncome = document.getElementById("median-income");
+            const povertyRate = document.getElementById("poverty-rate")
+
+            if (louisville) {
+                populationCell.textContent =
+                    Number(louisville.population).toLocaleString("en-US"); // formats number into a string
+            }
+
+            medianIncome.textContent =
+                "$" + Number(louisville.median_income).toLocaleString("en-US");
+
+            povertyRate.textContent =
+                Number(louisville.poverty_percent) + "%";
+
+        });
+}

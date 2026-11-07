@@ -135,3 +135,12 @@ Car commuting is standard across the broader metropolitan area, though core dist
 While the cost of living is noticeably higher than regional Midwestern peers, it remains remarkably affordable compared to global coastal hubs like New York or San Francisco. Housing costs vary widely, offering luxury high-rises down to accessible neighborhood two-flats.
 
 It features elite public transit via the CTA elevated train and bus network, enabling true car-free living across highly walkable, dense neighborhoods. The city experiences hot summers along Lake Michigan and famously cold, snowy winters, targeting career-driven professionals, urbanites, corporate leaders, and lovers of high-density city living.');
+
+
+CREATE TABLE users (
+                       user_id INT PRIMARY KEY AUTO_INCREMENT,
+                       username VARCHAR(50) NOT NULL UNIQUE,
+                       password VARCHAR(255) NOT NULL,
+                       email VARCHAR(100) NOT NULL UNIQUE,
+                       phone VARCHAR(20) NOT NULL UNIQUE
+);

@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__, template_folder=".", static_folder=".", static_url_path="/static")
+app = Flask(__name__)
 def get_db_connection():
     connection = mysql.connector.connect(
         host=os.getenv("DB_HOST"),
@@ -21,15 +21,20 @@ def get_db_connection():
 def home():
     return render_template("index.html")
 
-#--- CITY ---
+# --- CITY ---
 @app.route("/city")
 def city():
     return render_template("city.html")
 
-#--- COMPARE CITIES PAGE ---
+# --- COMPARE CITIES PAGE ---
 @app.route("/compare")
 def compare():
     return render_template("compare_cities.html")
+
+# --- CHARTS ---
+@app.route("/charts")
+def charts():
+    return render_template("charts.html")
 
 # --- TESTS DATABASE CONNECTION ---
 @app.route("/test-db")
@@ -56,27 +61,29 @@ def test_city():
 
     return result[0] if result else "City not found"
 
+
 @app.route("/api/cities")
 def get_cities():
-        connection = get_db_connection()
-        cursor = connection.cursor(dictionary=True)
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)
 
-        cursor.execute("""
-            SELECT cities.city_id,
-                   cities.city_name,
-                   cities.state,
-                   city_description.description
-            FROM cities
-            JOIN city_description
-                ON cities.city_id = city_description.city_id
-        """)
+    # Select all city statistics and descriptions
+    cursor.execute("""
+        SELECT cities.*,
+               city_description.description
+        FROM cities
+        JOIN city_description
+            ON cities.city_id = city_description.city_id
+        ORDER BY cities.city_id
+    """)
 
-        results = cursor.fetchall()
+    results = cursor.fetchall()
 
-        cursor.close()
-        connection.close()
+    cursor.close()
+    connection.close()
 
-        return jsonify(results)
+    return jsonify(results)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
