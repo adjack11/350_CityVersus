@@ -14,60 +14,7 @@
 <body>
 
 <!-- HEADER / NAVIGATION -->
-<header class="site-header">
-
-    <nav class="navbar">
-
-        <!-- CHANGED: Project title now links back to home -->
-        <a href="index.html">
-            <h1 id="project-title">City Versus</h1>
-        </a>
-
-         <!--NAVIGATION DROPDOWN-->
-	<div class="nav-dropdown">
-        <label for="nav">Features:</label>
-		<select id="nav" onchange="page_redirect(this.value)">
-            <option value="" disabled selected></option>
-			<option value="city.html">City Statistics</option>
-			<option value="compare_cities.html">Compare Cities</option>
-			<option value="charts.html">Charts</option>
-		</select>
-	</div>
-
-        <!-- SEARCH BAR -->
-        <!-- TODO: Add autocomplete city suggestions with JavaScript -->
-        <search>
-            <form action="/search" method="get">
-                <label for="city-search">Search for a city:</label>
-
-                <input
-                        type="search"
-                        name="city"
-                        id="city-search"
-                        placeholder="Enter a city name"
-                >
-
-                <button class="nav-button" type="button" onclick="redirect()">Search</button>
-            </form>
-        </search>
-
-        <!-- FACT SELECTOR -->
-        <div class="fact-selector">
-            <label for="fact">Select a fact:</label>
-
-            <select id="fact">
-                <option value="population">Population</option>
-                <option value="income">Median income</option>
-                <option value="poverty-rate">Poverty rate</option>
-            </select>
-        </div>
-
-        <!-- LOGIN -->
-        <a href="login.html">Log In</a>
-
-    </nav>
-
-</header>
+{% include 'navbar.html' %}
 
 <!-- MAIN CONTENT -->
 <main>

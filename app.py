@@ -105,8 +105,47 @@ def search_city():
     redirect(url_for('city'))
     return jsonify("Success")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    username = None
+    error = None
+    
+    if request.method == "POST":
+        #Capture email and password submitted from the form
+        email = request.form.get("email")
+        password = request.form.get("password")
+        
+        try:
+            #Connect to MySQL database
+            conn = get_db_connection()
+            # dictionary=True allows accessing columns by name (e.g., user['name'])
+            cursor = conn.cursor(dictionary=True)
+            
+            #Parameterized query to securely check credentials and prevent SQL injection
+            query = "SELECT username FROM users WHERE email = %s AND password = %s"
+            cursor.execute(query, (email, password))
+            user = cursor.fetchone()
+            
+            cursor.close()
+            conn.close()
+            
+            #Check if a matching user was found
+            if user:
+                session['username'] = user['username']
+                return redirect(url_for('home'))
+            else:
+                error = "Invalid email or password."
+            
+        except Exception as e:
+            error = str(e)
 
+    #This runs when they first visit the page (GET), or if login fails
+    return render_template("login.html", username=session.get('username'), error=error)
 
+@app.route("/logout")
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('home'))
 
 if __name__ == "__main__":
     app.run(debug=True)
