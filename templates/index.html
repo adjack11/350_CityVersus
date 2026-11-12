@@ -46,7 +46,7 @@
                         placeholder="Enter a city name"
                 >
 
-                <button class="nav-button" type="button" onclick="redirect()">Search</button>
+                <button class="nav-button" type="button" onclick="search()">Search</button>
             </form>
         </search>
 
@@ -110,14 +110,41 @@
 </footer>
 
 <script>
-    function redirect() {
-        const city_search = document.getElementById("city-search").value;
-        window.location.href = "city.html#" + city_search;
-    }
+	//Search function
+	function search() {
+	    //Reference to search bar input
+	    const city_name = document.getElementById("city-search").value;
+		
+		//Call to app.py
+	    fetch("/search-city", {
+	        method: "POST",
+	        headers: {
+	        "Content-Type": "application/json"
+	    },
+	    body: JSON.stringify({
+	        city_name: city_name
+	        })
+	    })
+	.then(response => response.json())
+	.then(data => {
+	    console.log(data);
 
-    function page_redirect(url) {
-        window.location.href = url;
-    }
+	    if(data.error){
+	        return;
+	    }
+	})
+	    .catch(error => {
+	    console.error(error);
+	    });
+		//Redirect to city
+		page_redirect("/city");
+	}
+
+    //Page redirect function for nav bar
+	function page_redirect(url) {
+	window.location.href = url;
+	}
+
 </script>
 
 <!-- JAVASCRIPT -->

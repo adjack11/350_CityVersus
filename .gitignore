@@ -5,3 +5,4 @@ __pycache__/
 .venv-win/
 *.pyc
 node_modules/
+/.vs/CSE350/CopilotIndices/18.10.1207.43936
