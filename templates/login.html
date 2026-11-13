@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Log In | City Versus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+</head>
+
+<body>
+
+<!-- HEADER / NAVIGATION -->
+{% include 'navbar.html' %}
+
+
+<!-- LOGIN -->
+<main>
+
+    <section class="login-container">
+
+        <h2>Log In</h2>
+
+        <form action="/login" method="post">
+
+            <div class="form-field">
+                <label for="email">Email:</label>
+
+                <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                >
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password:</label>
+
+                <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                >
+            </div>
+
+            <button type="submit">Log In</button>
+
+        </form>
+
+        <!-- Show error if login fails -->
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <p>
+            Don't have an account?
+            <a class="account-link" href="#">Create an account</a>
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- MEMBERS AND INFO -->
+<footer class="content-block" id="footer">
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Group Members</li>
+        <li>Ashley Jackson</li>
+        <li>Travis Jones</li>
+        <li>Molly Ladnier</li>
+        <li>Nathan Little</li>
+        <li>Benjamin Mackay</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Institution</li>
+        <li>University of Louisville</li>
+        <li>CSE-350</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">References</li>
+        <li><a href="https://www.census.gov/quickfacts/" target="_blank">United States Census Bureau</a></li>
+        <li><a href="https://usafacts.org/articles/how-does-crime-compare-by-city/?hl=en-US&utm_source=chatgpt.com" target="_blank">USAFacts (Data consolidated from the FBI)</a></li>
+        <li><a href="https://www.bls.gov/opub/ted/2026/unemployment-rates-lower-in-241-metro-areas-up-in-128-over-year-ended-july-2026.htm" target="_blank">U.S. Bureau of Labor Statistics</a></li>
+
+    </ul>
+
+</footer>
+
+</body>
+
+</html>

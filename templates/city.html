@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>City Versus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<!-- HEADER / NAVIGATION -->
+{% include 'navbar.html' %}
+
+<!-- MAIN CONTENT -->
+<main>
+
+    <h2>{{city_data['city_name']}}</h2>
+
+    <!-- CITY OVERVIEW -->
+    <section class="content-block" id="city-overview">
+
+        <h3>City Overview</h3>
+
+        <p>
+            Situated along the Falls of the Ohio River in north-central Kentucky,
+            directly across the water from southern Indiana, Louisville serves as
+            the largest city in the state. Its strategic riverside position
+            historically positioned it as a critical transportation, shipping,
+            and logistics crossroad bridging the American Midwest and the Upper South.
+        </p>
+
+        <p>
+            Founded in 1778 by George Rogers Clark and named in honor of King Louis XVI
+            of France, the city grew rapidly during the 19th century as a key steamboat
+            port and commercial trade center. Over the decades, it evolved into a hub
+            for manufacturing, spirits, and sports heritage—most notably becoming the
+            home of the world-famous Louisville Slugger baseball bat and Churchill Downs,
+            host of the annual Kentucky Derby since 1875.
+        </p>
+
+        <p>
+            The general vibe of Louisville is a blend of traditional Southern hospitality
+            and midwestern grit. Known colloquially as "Bourbon City," it boasts an expansive
+            urban distillery scene, world-class culinary offerings (from local icons like the
+            Hot Brown to high-end dining), leafy Olmsted-designed parks, and distinct historic
+            architecture. This creates a relaxed, approachable, yet creative atmosphere with
+            a strong pride in local sports, arts, and heritage.
+        </p>
+
+    </section>
+
+
+        <!-- CITY STATISTICS -->
+        <section class="content-block" id="city-statistics">
+
+            <h3>City Statistics</h3>
+
+            <div class="table-container">
+
+                <table>
+                    <tbody>
+
+                    <tr>
+                        <th scope="row"> Population
+
+                            <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                        </th>
+
+                        <td id="city-population">POOPY</td>
+						<td>{{city_data['population']}}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"> Median Income
+
+                            <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                        </th>
+
+                        <td id="median-income">POOPY</td>
+						<td>{{city_data['median_income']}}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"> Poverty Rate
+
+                            <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Bureau of Labor statistics (2026) </a>
+                                </span>
+                            </span>
+                        </th>
+
+                        <td id="poverty-rate">POOPY</td>
+						<td>{{city_data['poverty_percent']}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+</main>
+
+
+<!-- MEMBERS AND INFO -->
+<footer class="content-block" id="footer">
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Group Members</li>
+        <li>Ashley Jackson</li>
+        <li>Travis Jones</li>
+        <li>Molly Ladnier</li>
+        <li>Nathan Little</li>
+        <li>Benjamin Mackay</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Institution</li>
+        <li>University of Louisville</li>
+        <li>CSE-350</li>
+    </ul>
+
+        <ul class="footer-section footer-list">
+            <li class="footer-head">References</li>
+            <li><a href="https://www.census.gov/quickfacts/" target="_blank">United States Census Bureau</a></li>
+            <li><a href="https://usafacts.org/articles/how-does-crime-compare-by-city/?hl=en-US&utm_source=chatgpt.com" target="_blank">USAFacts (Data consolidated from the FBI)</a></li>
+            <li><a href="https://www.bls.gov/opub/ted/2026/unemployment-rates-lower-in-241-metro-areas-up-in-128-over-year-ended-july-2026.htm" target="_blank">U.S. Bureau of Labor Statistics</a></li>
+
+        </ul>
+
+</footer>
+
+<script>
+    function redirect() {
+        const city_search = document.getElementById("city-search").value;
+        window.location.href = "#" + city_search;
+    }
+
+    function page_redirect(url) {
+        window.location.href = url;
+    }
+</script>
+
+<!-- JAVASCRIPT LINK -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

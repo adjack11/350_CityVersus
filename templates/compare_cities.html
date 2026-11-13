@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>City Versus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+</head>
+
+<body>
+
+<!-- HEADER / NAVIGATION -->
+{% include 'navbar.html' %}
+
+<!-- MAIN CONTENT -->
+<main>
+
+    <h2>City Comparison</h2>
+
+    <!-- CITY OVERVIEW -->
+    <section class="content-block" id="city-overview">
+
+        <h3>City Overview</h3>
+
+        <div class="comparison-descriptions">
+
+            <article class="city-description">
+                <h3 id="city-name">Louisville, Kentucky</h3>
+
+                <div id="city-text">
+                    <p>Louisville paragraph one...</p>
+                    <p>Louisville paragraph two...</p>
+                    <p>Louisville paragraph three...</p>
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="comparison-controls">
+            <button id="prev-city" type="button">←</button>
+            <p id="city-counter">City 1 of 5</p>
+            <button id="next-city" type="button">→</button>
+        </div>
+
+    </section>
+
+
+    <!-- CITY STATISTICS -->
+    <section class="content-block" id="city-statistics">
+
+        <h3>City Statistics</h3>
+
+        <div class="table-container">
+
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Louisville</th>
+                    <th scope="col">Chicago</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+                    <th scope="row"> Population
+
+                        <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                    </th>
+
+                    <td>641,962</td>
+                    <td>2,731,585</td>
+                </tr>
+
+                <tr>
+                    <th scope="row"> Median Income
+
+                        <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Census Bureau (2024) </a>
+                                </span>
+                            </span>
+                    </th>
+
+                    <td>$66,849</td>
+                    <td>$77,902</td>
+                </tr>
+
+
+                <tr>
+                    <th scope="row"> Poverty Rate
+
+                        <span class="stat-help"> ⓘ
+                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                                    U.S. Bureau of Labor statistics (2026) </a>
+                                </span>
+                            </span>
+                    </th>
+
+                    <td>15.8%</td>
+                    <td>16.8%</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MEMBERS AND INFO -->
+<footer class="content-block" id="footer">
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Group Members</li>
+        <li>Ashley Jackson</li>
+        <li>Travis Jones</li>
+        <li>Molly Ladnier</li>
+        <li>Nathan Little</li>
+        <li>Benjamin Mackay</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Institution</li>
+        <li>University of Louisville</li>
+        <li>CSE-350</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">References</li>
+        <li><a href="https://www.census.gov/quickfacts/" target="_blank">United States Census Bureau</a></li>
+        <li><a href="https://usafacts.org/articles/how-does-crime-compare-by-city/?hl=en-US&utm_source=chatgpt.com" target="_blank">USAFacts (Data consolidated from the FBI)</a></li>
+        <li><a href="https://www.bls.gov/opub/ted/2026/unemployment-rates-lower-in-241-metro-areas-up-in-128-over-year-ended-july-2026.htm" target="_blank">U.S. Bureau of Labor Statistics</a></li>
+
+    </ul>
+
+</footer>
+<script>
+
+    function redirect() {
+        const city_search = document.getElementById("city-search").value;
+        window.location.href = "city.html#" + city_search;
+    }
+
+    function page_redirect(url){
+        window.location.href = url;
+    }
+
+</script>
+
+<!-- JAVASCRIPT -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

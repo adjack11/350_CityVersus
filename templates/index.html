@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City Versus</title>
+    <!--ALLOWS FLASK TO SERVE CSS FILE-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+</head>
+
+<body>
+<!-- HEADER / NAVIGATION -->
+{% include 'navbar.html' %}
+
+
+<!-- WEBSITE DESCRIPTION -->
+<section class="content-block" id="project-overview">
+    <p>
+        CityVS was created to take the guesswork out of relocating by offering a clean,
+        transparent way to compare cities based on the metrics that matter most. Built
+        as part of a software engineering project (CSE-350) at the University of Louisville,
+        the platform cuts through the noise by delivering key data using official,
+        up-to-date government sources without visual clutter. While the site currently
+        focuses on the 10 major cities closest to our region, it gives users an effortless,
+        distraction-free tool to evaluate their options side by side.
+    </p>
+</section>
+
+<footer class="content-block" id="footer">
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Group Members</li>
+        <li>Ashley Jackson</li>
+        <li>Travis Jones</li>
+        <li>Molly Ladnier</li>
+        <li>Nathan Little</li>
+        <li>Benjamin Mackay</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">Institution</li>
+        <li>University of Louisville</li>
+        <li>CSE-350</li>
+    </ul>
+
+    <ul class="footer-section footer-list">
+        <li class="footer-head">References</li>
+        <li><a href="https://www.census.gov/quickfacts/" target="_blank">United States Census Bureau</a></li>
+        <li><a href="https://usafacts.org/articles/how-does-crime-compare-by-city/?hl=en-US&utm_source=chatgpt.com" target="_blank">USAFacts (Data consolidated from the FBI)</a></li>
+        <li><a href="https://www.bls.gov/opub/ted/2026/unemployment-rates-lower-in-241-metro-areas-up-in-128-over-year-ended-july-2026.htm" target="_blank">U.S. Bureau of Labor Statistics</a></li>
+
+    </ul>
+
+</footer>
+
+<script>
+	//Search function
+	function search() {
+	    //Reference to search bar input
+	    const city_name = document.getElementById("city-search").value;
+		
+		//Call to app.py
+	    fetch("/search-city", {
+	        method: "POST",
+	        headers: {
+	        "Content-Type": "application/json"
+	    },
+	    body: JSON.stringify({
+	        city_name: city_name
+	        })
+	    })
+	.then(response => response.json())
+	.then(data => {
+	    console.log(data);
+
+	    if(data.error){
+	        return;
+	    }
+	})
+	    .catch(error => {
+	    console.error(error);
+	    });
+		//Redirect to city
+		page_redirect("/city");
+	}
+
+    //Page redirect function for nav bar
+	function page_redirect(url) {
+	window.location.href = url;
+	}
+
+</script>
+
+<!-- JAVASCRIPT -->
+<!-- ALLOWS FLASK TO SERVE JAVASCRIPT FILE -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
