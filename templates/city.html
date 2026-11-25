@@ -27,30 +27,7 @@
 
         <h3>City Overview</h3>
 
-        <p>
-            Situated along the Falls of the Ohio River in north-central Kentucky,
-            directly across the water from southern Indiana, Louisville serves as
-            the largest city in the state. Its strategic riverside position
-            historically positioned it as a critical transportation, shipping,
-            and logistics crossroad bridging the American Midwest and the Upper South.
-        </p>
-
-        <p>
-            Founded in 1778 by George Rogers Clark and named in honor of King Louis XVI
-            of France, the city grew rapidly during the 19th century as a key steamboat
-            port and commercial trade center. Over the decades, it evolved into a hub
-            for manufacturing, spirits, and sports heritage—most notably becoming the
-            home of the world-famous Louisville Slugger baseball bat and Churchill Downs,
-            host of the annual Kentucky Derby since 1875.
-        </p>
-
-        <p>
-            The general vibe of Louisville is a blend of traditional Southern hospitality
-            and midwestern grit. Known colloquially as "Bourbon City," it boasts an expansive
-            urban distillery scene, world-class culinary offerings (from local icons like the
-            Hot Brown to high-end dining), leafy Olmsted-designed parks, and distinct historic
-            architecture. This creates a relaxed, approachable, yet creative atmosphere with
-            a strong pride in local sports, arts, and heritage.
+        <p>{{city_desc['description']}}
         </p>
 
     </section>
@@ -146,14 +123,41 @@
 </footer>
 
 <script>
-    function redirect() {
-        const city_search = document.getElementById("city-search").value;
-        window.location.href = "#" + city_search;
-    }
+	//Search function
+	function search() {
+	    //Reference to search bar input
+	    const city_name = document.getElementById("city-search").value;
+		
+		//Call to app.py
+	    fetch("/search-city", {
+	        method: "POST",
+	        headers: {
+	        "Content-Type": "application/json"
+	    },
+	    body: JSON.stringify({
+	        city_name: city_name
+	        })
+	    })
+	.then(response => response.json())
+	.then(data => {
+	    console.log(data);
 
-    function page_redirect(url) {
-        window.location.href = url;
-    }
+	    if(data.error){
+	        return;
+	    }
+	})
+	    .catch(error => {
+	    console.error(error);
+	    });
+		//Redirect to city
+		page_redirect("/city");
+	}
+
+    //Page redirect function for nav bar
+	function page_redirect(url) {
+	window.location.href = url;
+	}
+
 </script>
 
 <!-- JAVASCRIPT LINK -->

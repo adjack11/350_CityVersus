@@ -97,6 +97,43 @@
     </ul>
 
 </footer>
+<script>
+	//Search function
+	function search() {
+	    //Reference to search bar input
+	    const city_name = document.getElementById("city-search").value;
+		
+		//Call to app.py
+	    fetch("/search-city", {
+	        method: "POST",
+	        headers: {
+	        "Content-Type": "application/json"
+	    },
+	    body: JSON.stringify({
+	        city_name: city_name
+	        })
+	    })
+	.then(response => response.json())
+	.then(data => {
+	    console.log(data);
+
+	    if(data.error){
+	        return;
+	    }
+	})
+	    .catch(error => {
+	    console.error(error);
+	    });
+		//Redirect to city
+		page_redirect("/city");
+	}
+
+    //Page redirect function for nav bar
+	function page_redirect(url) {
+	window.location.href = url;
+	}
+
+</script>
 
 </body>
 
