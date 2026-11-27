@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template, request, session, redirect, u
 import os
 import mysql.connector
 from dotenv import load_dotenv
+from mysql.connector import IntegrityError
 
 load_dotenv()
 
@@ -146,6 +147,52 @@ def login():
 def logout():
     session.pop('username', None)
     return redirect(url_for('home'))
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    error = None
+
+    if request.method == "POST":
+        username = request.form.get("username", "").strip()
+        email = request.form.get("email", "").strip()
+        phone = request.form.get("phone", "").strip()
+        password = request.form.get("password", "")
+
+        if not username or not email or not phone or not password:
+            error = "All fields are required."
+            return render_template("register.html", error=error)
+
+        user_created = False
+        conn = None
+        cursor = None
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            query = """
+                INSERT INTO users (username, password, email, phone)
+                VALUES (%s, %s, %s, %s)
+            """
+            cursor.execute(query, (username, password, email, phone))
+            conn.commit()
+            user_created = cursor.rowcount > 0
+        except IntegrityError:
+            error = "Username, email, or phone number is already registered."
+        except mysql.connector.Error as err:
+            error = f"Database error: {err}"
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+        if user_created:
+            session["username"] = username
+            return redirect(url_for("home"))
+
+        if not error:
+            error = "Could not create account. Please try again."
+
+    return render_template("register.html", error=error)
 
 if __name__ == "__main__":
     app.run(debug=True)
