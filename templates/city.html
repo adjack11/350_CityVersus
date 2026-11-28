@@ -33,7 +33,7 @@
     </section>
 
 
-        <!-- CITY STATISTICS -->
+        <!-- CITY STATISTICS : BASED ON CITIES_INSERTS-->
         <section class="content-block" id="city-statistics">
 
             <h3>City Statistics</h3>
@@ -42,6 +42,8 @@
 
                 <table>
                     <tbody>
+
+                    <!-- POPULATION AND DEMOGRAPHICS -->
 
                     <tr>
                         <th scope="row"> Population
@@ -53,10 +55,48 @@
                             </span>
                         </th>
 
-                        <td id="city-population">POOPY</td>
 						<td>{{city_data['population']}}</td>
                     </tr>
 
+                    <!-- demographics -->
+                    <tr>
+                        <th scope="row">White</th>
+                        <td>{{ "%.1f"|format(city_data['white_percent'] | float) }}%</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Black</th>
+                        <td>{{ "%.1f"|format(city_data['black_percent'] | float) }}%</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">American Indian / Alaska Native</th>
+                        <td>{{ "%.1f"|format(city_data['american_indian_percent'] | float) }}%</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Asian</th>
+                        <td>{{ "%.1f"|format(city_data['asian_percent'] | float) }}%</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Native Hawaiian / Pacific Islander</th>
+                        <td>{{ "%.1f"|format(city_data['pacific_islander_percent'] | float) }}%</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Two or More Races</th>
+                        <td>{{ "%.1f"|format(city_data['two_plus_races_percent'] | float) }}%</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Hispanic / Latino</th>
+                        <td>{{ "%.1f"|format(city_data['hispanic_percent'] | float) }}%</td>
+                    </tr>
+
+                    <!-- MEDIAN INCOME AND RENT -->
+
+                    <!-- median income -->
                     <tr>
                         <th scope="row"> Median Income
 
@@ -67,10 +107,24 @@
                             </span>
                         </th>
 
-                        <td id="median-income">POOPY</td>
-						<td>{{city_data['median_income']}}</td>
+                        <td>{{city_data['median_income']}}</td>
                     </tr>
 
+                    <!--gross rent -->
+                    <tr>
+                        <th scope="row">Median Gross Rent</th>
+                        <td>${{ "{:,}".format(city_data['median_gross_rent'] | int) }}</td>
+                    </tr>
+
+                    <!-- ECONOMIC STATS -->
+
+                    <!-- unemployment rates -->
+                    <tr>
+                        <th scope="row">Unemployment Rate</th>
+                        <td>{{ "%.1f"|format(city_data['unemployment_rate'] | float) }}%</td>
+                    </tr>
+
+                    <!-- poverty rates-->
                     <tr>
                         <th scope="row"> Poverty Rate
 
@@ -81,9 +135,28 @@
                             </span>
                         </th>
 
-                        <td id="poverty-rate">POOPY</td>
-						<td>{{city_data['poverty_percent']}}</td>
+                        <td>{{city_data['poverty_percent']}}</td>
                     </tr>
+
+                    <!-- uninsured rates -->
+                    <tr>
+                        <th scope="row">Uninsured Population</th>
+                        <td>{{ "%.1f"|format(city_data['insured_percent'] | float) }}%</td>
+                    </tr>
+
+                    <!-- CRIME RATES: per 100,000-->
+                    <!-- violent crime -->
+                    <tr>
+                        <th scope="row">Violent Crime Rate</th>
+                        <td>{{ "{:,.1f}".format(city_data['violent_crime_rate'] | float) }}</td>
+                    </tr>
+
+                    <!-- property crime -->
+                    <tr>
+                        <th scope="row">Property Crime Rate</th>
+                        <td>{{ "{:,.1f}".format(city_data['property_crime_rate'] | float) }}</td>
+                    </tr>
+
 
                     </tbody>
                 </table>
@@ -123,35 +196,44 @@
 </footer>
 
 <script>
-	//Search function
+	// SEARCH FUNCTION -- might be causing the timing error, so I mess with this
 	function search() {
 	    //Reference to search bar input
-	    const city_name = document.getElementById("city-search").value;
-		
-		//Call to app.py
-	    fetch("/search-city", {
-	        method: "POST",
-	        headers: {
-	        "Content-Type": "application/json"
-	    },
-	    body: JSON.stringify({
-	        city_name: city_name
-	        })
-	    })
-	.then(response => response.json())
-	.then(data => {
-	    console.log(data);
+        const city_name = document.getElementById("city-search").value;
 
-	    if(data.error){
-	        return;
-	    }
-	})
-	    .catch(error => {
-	    console.error(error);
-	    });
-		//Redirect to city
-		page_redirect("/city");
-	}
+        // Send selected city to Flask
+        fetch("/search-city", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                city_name: city_name
+            })
+        })
+
+            // Wait for Flask to respond, then convert JSON
+            .then(response => response.json())
+
+            // Process response from flask
+            .then(data => {
+                console.log(data);
+
+                // If city not found, don't redirect
+                if (data.error) {
+                    alert(data.error);
+                    return;
+                }
+
+                // Redirect ONLY after Flask confirms success
+                page_redirect("/city");
+            })
+
+            // Catch errors
+            .catch(error => {
+                console.error("Search error:", error);
+            });
+    }
 
     //Page redirect function for nav bar
 	function page_redirect(url) {

@@ -17,11 +17,11 @@
 	</div>
 
 
-
-
+        <!--Having it call Molly's JS instead of the default browser submission
+         So now here, you can search the cities, and it doesn't throw an error, but now there is timing issue-->
         <!-- SEARCH BAR -->
         <search>
-            <form action="/search" method="get">
+            <form onsubmit="event.preventDefault(); search();"> <!-- prevents default action taken by the browser -->
                 <label for="city-search">Search for a city:</label>
 
                 <input
@@ -31,7 +31,7 @@
                         placeholder="Enter a city name"
                 >
 
-                <button class="nav-button" type="button" onclick="search()">Search</button>
+                <button class="nav-button" type="submit">Search</button> <!-- removed onclick -->
             </form>
         </search>
 

@@ -29,13 +29,28 @@ def city():
     city_name = session.get('city_name', None)
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
-    #Grab corresponding city row from database
-    cursor.execute("SELECT * FROM cities WHERE city_name = %s", (city_name,))
-    row = cursor.fetchone()
+
+    # Retrieving city stats and description
+    cursor.execute("""
+            SELECT cities.*, city_description.description
+            FROM cities
+            LEFT JOIN city_description
+                ON cities.city_id = city_description.city_id
+            WHERE cities.city_name = %s # parameter placeholder
+        """, (city_name,))
+
+    row = cursor.fetchone() # retrieves one row, no matches returns None
     cursor.close()
     connection.close()
-    #Render city.html with fetched row
-    return render_template("city.html", city_data=row)
+
+    if row is None:
+        return render_template("bad_search.html"), 404
+
+    return render_template(
+        "city.html",
+        city_data=row,
+        city_desc=row # now includes city description
+        )
 
 # --- COMPARE CITIES PAGE ---
 @app.route("/compare")
@@ -95,15 +110,39 @@ def get_cities():
 
     return jsonify(results)
 
-#Search button
+#Search button - no 404 errors show when searching now, but still not working...
 @app.route("/search-city", methods=["POST"])
 def search_city():
     #Get data from search function and store it as a session variable
-    data = request.get_json()
-    session['city_name'] = data["city_name"]
-    #Redirect to city load
-    redirect(url_for('city'))
-    return jsonify("Success")
+    data = request.get_json(silent=True) or {}
+    # gets city name and removes extra spaces
+    city_name = str(data.get("city_name") or "").strip()
+
+    # checking if city exists in database
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)
+
+    # supplying searched city name
+    cursor.execute("""
+        SELECT city_name
+        FROM cities
+        WHERE LOWER(city_name) = LOWER(%s)
+    """, (city_name,))
+
+    row = cursor.fetchone()
+
+    cursor.close()
+    connection.close()
+
+    # Return error if city not found
+    if row is None:
+        return jsonify({"error": "City not found"}), 404
+
+    # store city name for /city
+    session["city_name"] = row["city_name"]
+
+    # Tell JavaScript that the search succeeded
+    return jsonify({"success": True})
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

@@ -21,6 +21,34 @@
 
     <h2>City Comparison</h2>
 
+    <!-- CITY SELECTION -->
+    <section class="content-block" id="city-selection">
+
+        <h3>Select Cities</h3>
+        <p class="italicize">Select up to five cities to compare</p>
+
+        <!-- JS will fill the dropdown menus
+        * using aria-label for interactive element
+        -->
+        <div class="comparison-options">
+            <select class="city-option" aria-label="City 1"></select>
+            <select class="city-option" aria-label="City 2"></select>
+            <select class="city-option" aria-label="City 3"></select>
+            <select class="city-option" aria-label="City 4"></select>
+            <select class="city-option" aria-label="City 5"></select>
+        </div>
+
+        <!-- option to clear all selections -->
+        <button type="button" id="clear-button">
+            Clear Selections
+        </button>
+        <button type="button" id="compare-button">
+            Compare
+        </button>
+
+
+    </section>
+
     <!-- CITY OVERVIEW -->
     <section class="content-block" id="city-overview">
 
@@ -29,12 +57,10 @@
         <div class="comparison-descriptions">
 
             <article class="city-description">
-                <h3 id="city-name">Louisville, Kentucky</h3>
+                <h3 id="city-name"></h3>
 
                 <div id="city-text">
-                    <p>Louisville paragraph one...</p>
-                    <p>Louisville paragraph two...</p>
-                    <p>Louisville paragraph three...</p>
+                    <p>Select cities and click compare to see descriptions.</p>
                 </div>
 
             </article>
@@ -43,7 +69,7 @@
 
         <div class="comparison-controls">
             <button id="prev-city" type="button">←</button>
-            <p id="city-counter">City 1 of 5</p>
+            <p id="city-counter">City 1 of 1</p>
             <button id="next-city" type="button">→</button>
         </div>
 
@@ -57,63 +83,122 @@
 
         <div class="table-container">
 
+
+    <!-- NO <td></td>> BC IT WILL BE ADDED DYNAMICALLY WITH JS -->
+
             <table>
-                <thead>
-                <tr>
+                <thead id="comparison-header">
+                <tr id="compare-header-row">
                     <th></th>
-                    <th scope="col">Louisville</th>
-                    <th scope="col">Chicago</th>
                 </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="comparison-body">
 
+                <!-- POPULATION AND DEMOGRAPHICS -->
 
-                <tr>
+                <tr data-field="population">
                     <th scope="row"> Population
 
                         <span class="stat-help"> ⓘ
-                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
-                                    U.S. Census Bureau (2024) </a>
-                                </span>
-                            </span>
+                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                    U.S. Census Bureau (2024) </a>
+                </span>
+            </span>
                     </th>
-
-                    <td>641,962</td>
-                    <td>2,731,585</td>
                 </tr>
 
-                <tr>
+                <!-- demographics -->
+                <tr data-field="white_percent">
+                    <th scope="row">White</th>
+                </tr>
+
+                <tr data-field="black_percent">
+                    <th scope="row">Black</th>
+                </tr>
+
+                <tr data-field="american_indian_percent">
+                    <th scope="row">American Indian / Alaska Native</th>
+                </tr>
+
+                <tr data-field="asian_percent">
+                    <th scope="row">Asian</th>
+                </tr>
+
+                <tr data-field="pacific_islander_percent">
+                    <th scope="row">Native Hawaiian / Pacific Islander</th>
+                </tr>
+
+                <tr data-field="two_plus_races_percent">
+                    <th scope="row">Two or More Races</th>
+                </tr>
+
+                <tr data-field="hispanic_percent">
+                    <th scope="row">Hispanic / Latino</th>
+                </tr>
+
+                <!-- MEDIAN INCOME AND RENT -->
+
+                <!-- median income -->
+                <tr data-field="median_income">
                     <th scope="row"> Median Income
 
                         <span class="stat-help"> ⓘ
-                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
-                                    U.S. Census Bureau (2024) </a>
-                                </span>
-                            </span>
+                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                    U.S. Census Bureau (2024) </a>
+                </span>
+            </span>
                     </th>
-
-                    <td>$66,849</td>
-                    <td>$77,902</td>
                 </tr>
 
+                <!--gross rent -->
+                <tr data-field="median_gross_rent">
+                    <th scope="row">Median Gross Rent</th>
+                </tr>
 
-                <tr>
+                <!-- ECONOMIC STATS -->
+
+                <!-- unemployment rates -->
+                <tr data-field="unemployment_rate">
+                    <th scope="row">Unemployment Rate</th>
+                </tr>
+
+                <!-- poverty rates-->
+                <tr data-field="poverty_percent">
                     <th scope="row"> Poverty Rate
 
                         <span class="stat-help"> ⓘ
-                                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
-                                    U.S. Bureau of Labor statistics (2026) </a>
-                                </span>
-                            </span>
+                <span class="stat-description"> <a href="SOURCE-URL" target="_blank" class="source-link">
+                    U.S. Bureau of Labor statistics (2026) </a>
+                </span>
+            </span>
                     </th>
+                </tr>
 
-                    <td>15.8%</td>
-                    <td>16.8%</td>
+                <!-- uninsured rates -->
+                <tr data-field="insured_percent">
+                    <th scope="row">Uninsured Population</th>
+                </tr>
+
+                <!-- CRIME RATES: per 100,000-->
+                <!-- violent crime -->
+                <tr data-field="violent_crime_rate">
+                    <th scope="row">Violent Crime Rate</th>
+                </tr>
+
+                <!-- property crime -->
+                <tr data-field="property_crime_rate">
+                    <th scope="row">Property Crime Rate</th>
                 </tr>
 
                 </tbody>
             </table>
+
+
+
+
+
+
         </div>
 
     </section>
@@ -127,10 +212,8 @@
     <ul class="footer-section footer-list">
         <li class="footer-head">Group Members</li>
         <li>Ashley Jackson</li>
-        <li>Travis Jones</li>
         <li>Molly Ladnier</li>
         <li>Nathan Little</li>
-        <li>Benjamin Mackay</li>
     </ul>
 
     <ul class="footer-section footer-list">

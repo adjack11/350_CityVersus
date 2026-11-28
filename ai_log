@@ -5,7 +5,7 @@ PROJECT AI ASSISTANCE LOG
 --- [Date: 10/01/2026] ---
 Tool Used: ChatGPT
 Purpose: Helped determine what files should be ignored
-Location: /.gitignore
+Location: /.gitignore6
 
 --- [Date: 10/19/2026] ---
 Tool Used: ChatGPT
@@ -16,3 +16,8 @@ Location: /city_description.sql
 Tool Used: ChatGPT
 Purpose: Connecting Flask, MySQL, and frontend components
 Location: /.env, /app.py
+
+--- [GENERAL] ---
+* Used ChatGPT to identify issues and errors
+* Used ChatGPT to help understand some JS methods
+
